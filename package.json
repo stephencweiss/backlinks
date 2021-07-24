@@ -14,6 +14,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
+    "test:clean": "tsdx test --clearCache",
+    "tdd": "yarn run test:clean; tsdx test --watch",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -24,12 +26,6 @@
     "hooks": {
       "pre-commit": "tsdx lint"
     }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   },
   "name": "backlinks",
   "author": "Stephen",
@@ -47,9 +43,16 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.1",
     "husky": "^7.0.1",
+    "np": "^7.5.0",
+    "prettier": "^2.3.2",
     "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "nonplain": "^0.0.5",
+    "nonplain-md-backlinker": "^0.0.5",
+    "nonplain-md-link": "^0.0.10"
   }
 }
