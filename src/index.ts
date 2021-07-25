@@ -3,13 +3,18 @@ import path from 'path';
 import { backlinker } from 'nonplain-md-backlinker';
 import { addBacklinksToOriginal, cleanBacklinks } from './helpers/helpers';
 
-/**
- * Given a directory of nonplain text files, modifies in place all files with backlinks
- * @param directory - a directory path to the directory of text files
- * @param ext - the extension of the files we're looking for, defaults to md
- */
-export function updateBacklinksOnDir(directory: string, ext: string = 'md') {
-  const pathToDir = path.resolve(__dirname, directory);
+interface updateBacklinksOnDirProps {
+  directory: string;
+  ext: string;
+  preview: boolean;
+}
+
+export function updateBacklinksOnDir({
+  directory,
+  ext = 'md',
+  preview = false,
+}: updateBacklinksOnDirProps) {
+  const pathToDir = path.resolve(directory);
   const files = new Files().load(`${pathToDir}/**/*.${ext}`);
   backlinker(files);
 
