@@ -8,7 +8,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -28,7 +28,18 @@
     }
   },
   "name": "backlinks",
-  "author": "Stephen",
+  "author": {
+    "name": "Stephen Weiss",
+    "email": "stephencweiss@gmail.com",
+    "url": "stephencharlesweiss.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stephencweiss/backlinks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stephencweiss/backlinks/issues"
+  },
   "module": "dist/backlinks.esm.js",
   "size-limit": [
     {
