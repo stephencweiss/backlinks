@@ -16,6 +16,8 @@ export function updateBacklinksOnDir({
 }: updateBacklinksOnDirProps) {
   const pathToDir = path.resolve(directory);
   const files = new Files().load(`${pathToDir}/**/*.${ext}`);
+
+  console.log(`Processing ${files.collect().length} files.`);
   backlinker(files);
 
   files.collect().forEach((file: FileData) => {
@@ -29,6 +31,12 @@ export function updateBacklinksOnDir({
       addBacklinksToOriginal(ogFile, backlinks)
     );
 
-    modifiedFile.write(resolvedFilePath);
+    if (preview) {
+      console.log(`preview of ${file.metadata.title}`);
+      console.log(JSON.stringify(modifiedFile, null, 4));
+    } else {
+      modifiedFile.write(resolvedFilePath);
+    }
   });
+  console.log(`Done processing files.`)
 }

@@ -1,3 +1,3 @@
-const { backlinks } = require('../dist');
+const { updateBacklinksOnDir } = require('../dist');
 
-backlinks('./example/test');
+updateBacklinksOnDir({ directory: './example/test', preview: true });
